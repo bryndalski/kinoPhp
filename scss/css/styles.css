@@ -27,13 +27,33 @@
 .text--white {
   color: white;
 }
+.text--center {
+  text-align: center;
+}
 
 .m--1 {
   margin: 3px;
 }
+.m--center {
+  margin: 0 auto;
+}
+.m--mt3 {
+  margin-top: 10rem;
+}
 
 .d--flex {
   display: flex;
+}
+
+.w--content {
+  width: fit-content;
+}
+
+.border--valid {
+  border-color: #47c416 !important;
+}
+.border--error {
+  border-color: #be3e3e !important;
 }
 
 .flex--row {
@@ -41,6 +61,19 @@
 }
 .flex--wrap {
   flex-wrap: wrap;
+}
+.flex--row {
+  flex-direction: row;
+}
+.flex--center {
+  justify-content: center;
+  align-items: center;
+}
+.flex--between {
+  justify-content: space-between;
+}
+.flex--col {
+  flex-direction: column;
 }
 
 .sizes--big {
@@ -60,4 +93,57 @@
 }
 .cinemaItem table * {
   color: orange;
+}
+
+.inputGroup input {
+  border: none;
+  font-size: 1.2em;
+  background-color: black;
+  width: 100%;
+  border-bottom: solid 1px orange;
+  color: orange;
+}
+.inputGroup input::-webkit-outer-spin-button, .inputGroup input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  color: orange;
+}
+.inputGroup input:focus {
+  box-shadow: none;
+  outline: none;
+  transition: 0.2s ease-in-out;
+  color: orange;
+}
+.inputGroup input::placeholder {
+  color: orange;
+}
+
+.border--valid {
+  border-color: #47c416 !important;
+}
+.border--error {
+  border-color: #be3e3e !important;
+}
+
+.button {
+  border: solid 3px;
+  width: fit-content;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  font-size: large;
+  filter: alpha(opacity=100);
+}
+.button:hover {
+  cursor: pointer;
+  border-color: transparent;
+}
+.button--accept {
+  border-color: #47c416;
+  background-color: #47c416;
+  opacity: 1;
+  color: white;
+}
+.button--accept:hover {
+  background-color: #225c0b;
 }

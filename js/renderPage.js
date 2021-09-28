@@ -10,7 +10,12 @@ class PageGenderer {
       .then((x) => {
         this.movies = this.formatData(x);
         this.movies.forEach((e) =>
-          this.renderCinemaBox("http://localhost/kino", e.movie, e.times)
+          this.renderCinemaBox(
+            "http://localhost/kino",
+            e.movie,
+            e.times,
+            e.cover
+          )
         );
       });
   }
@@ -43,9 +48,9 @@ class PageGenderer {
     return toReturn;
   }
 
-  renderCinemaBox(url, title, times) {
+  renderCinemaBox(url, title, times, cover) {
     let cinemaItem = `<div class="cinemaItem">
-        <img src="https://fwcdn.pl/fpo/32/17/343217/7509680.3.jpg" alt="" />
+        <img src="${cover}" alt="" />
         <div class="sizes--big">
           <h1 class="text--orange">${title}</h1>
           <div class="d--flex flex--row flex--wrap">

@@ -35,16 +35,32 @@ INSERT INTO `showing`(`hour`, `day`, `movie`) VALUES ('9:20',(SELECT id from day
 
 <-------------- POBIERANIE DOSTĘPNYCH SEANSÓW Z GODZINAMI I DATAMI -------------------->
 SELECT
-    days.name as "day",
-    showing.hour,
+    showing.hour AS "hour",
     (
-    	SELECT name from movies where id LIKE showing.movie 
-    ) as "film"
+    SELECT NAME
 FROM
-    showing
-RIGHT JOIN days ON showing.day = days.id
+    days
 WHERE
-    movie LIKE 1;
+    days.id LIKE showing.day
+) AS "day",
+(
+    SELECT
+        movies.name
+    FROM
+        movies
+    WHERE
+        movies.ID LIKE showing.movie
+) AS "film",
+(
+    SELECT
+        movies.imgLink
+    FROM
+        movies
+    WHERE
+        movies.ID LIKE showing.movie
+) AS "cover"
+FROM
+    showing;
 
 <--------------------KOLEJNE EKSPERYMENTALNE ------------------->
 SELECT days.name as "day", showing.hour, ( SELECT name from movies where id LIKE showing.movie ) as "film" FROM showing LEFT JOIN days ON showing.day = days.id 

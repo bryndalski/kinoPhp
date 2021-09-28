@@ -1,3 +1,7 @@
+$baseBackground: #333333;
+$baseGreen: #47c416;
+$baseGreen--dark: #225c0b;
+$errorRed: #be3e3e;
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
 .btn {
@@ -30,10 +34,20 @@
   &--white {
     color: white;
   }
+  &--center {
+    text-align: center;
+  }
 }
 .m {
   &--1 {
     margin: 3px;
+  }
+
+  &--center {
+    margin: 0 auto;
+  }
+  &--mt3 {
+    margin-top: 10rem;
   }
 }
 
@@ -42,12 +56,42 @@
     display: flex;
   }
 }
+
+.w {
+  &--content {
+    width: fit-content;
+  }
+}
+.border {
+  &--valid {
+    border-color: $baseGreen !important;
+  }
+  &--error {
+    border-color: $errorRed !important;
+  }
+}
+
 .flex {
   &--row {
     flex-direction: row;
   }
   &--wrap {
     flex-wrap: wrap;
+  }
+  &--row {
+    flex-direction: row;
+  }
+
+  &--center {
+    justify-content: center;
+    align-items: center;
+  }
+
+  &--between {
+    justify-content: space-between;
+  }
+  &--col {
+    flex-direction: column;
   }
 }
 
@@ -71,6 +115,63 @@
   table {
     * {
       color: orange;
+    }
+  }
+}
+
+.inputGroup {
+  input {
+    border: none;
+    font-size: 1.2em;
+    background-color: black;
+    width: 100%;
+    border-bottom: solid 1px orange;
+    color: orange;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+      color: orange;
+    }
+    &:focus {
+      box-shadow: none;
+      outline: none;
+      transition: 0.2s ease-in-out;
+      color: orange;
+    }
+    &::placeholder {
+      color: orange;
+    }
+  }
+}
+
+.border {
+  &--valid {
+    border-color: $baseGreen !important;
+  }
+  &--error {
+    border-color: $errorRed !important;
+  }
+}
+.button {
+  border: solid 3px;
+  width: fit-content;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  font-size: large;
+  filter: alpha(opacity=100);
+  &:hover {
+    cursor: pointer;
+    border-color: transparent;
+  }
+  &--accept {
+    border-color: $baseGreen;
+    background-color: $baseGreen;
+    opacity: 1;
+    color: white;
+    &:hover {
+      background-color: $baseGreen--dark;
     }
   }
 }

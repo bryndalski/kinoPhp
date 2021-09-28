@@ -16,7 +16,10 @@
     parse_str($url_components["query"], $params);
     ?>
     <script type="text/javascript">
-      let x = `<?php echo $params["imie"]." "."nazwisko ".$params["nazwisko"]; ?>`;
+      let x = `<?php echo $params["imie"] .
+          " " .
+          "nazwisko " .
+          $params["nazwisko"]; ?>`;
       document.write(x);
     </script>
   </body>

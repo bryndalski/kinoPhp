@@ -1,7 +1,7 @@
 <?php
 $conn = new mysqli("localhost", "root", "", "kino2");
 $result = $conn->query(
-    'SELECT days.name as "day", showing.hour, ( SELECT name from movies where id LIKE showing.movie ) as "film" , ( SELECT imgLink from movies where id LIKE showing.movie )as "cover" FROM showing LEFT JOIN days ON showing.day = days.id GROUP by name;'
+  'SELECT showing.hour as "hour",(SELECT name FROM days WHERE days.id LIKE showing.day) as "day",(SELECT movies.name FROM movies WHERE movies.ID LIKE showing.movie) as "film",(SELECT movies.imgLink FROM movies WHERE movies.ID LIKE showing.movie) as "cover" FROM showing'
 );
 $json = [];
 while ($row = $result->fetch_assoc()) {
