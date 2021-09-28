@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+.btn {
+  font-weight: bolder;
+  border: none;
+  padding: 10px;
+  margin-left: 5px;
+  text-decoration: none;
+}
+.btn--orange {
+  background-color: #ad7101;
+  border-color: orange;
+  color: white;
+  transition: all ease-in 0.2s;
+}
+.btn--orange:hover {
+  color: black;
+  cursor: pointer;
+  background-color: orange;
+}
+.btn--round {
+  border-radius: 20px;
+}
+
+.text--orange {
+  color: orange;
+}
+.text--white {
+  color: white;
+}
+
+.m--1 {
+  margin: 3px;
+}
+
+.d--flex {
+  display: flex;
+}
+
+.flex--row {
+  flex-direction: row;
+}
+.flex--wrap {
+  flex-wrap: wrap;
+}
+
+.sizes--big {
+  width: 100%;
+  height: 100%;
+}
+
+.cinemaItem {
+  display: flex;
+  margin: 1rem;
+  border: solid 3px orange;
+}
+.cinemaItem img {
+  margin: 1px;
+  width: 200px;
+  height: 200px;
+}
+.cinemaItem table * {
+  color: orange;
+}

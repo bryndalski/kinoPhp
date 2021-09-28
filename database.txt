@@ -1,0 +1,50 @@
+CREATE TABLE days (id int not null AUTO_INCREMENT PRIMARY KEY,
+name varchar(10) not null
+)
+INSERT INTO `days`(`name`)
+VALUES("pon"),("wt"),("śr"),("czw"),("pt"),("so"),("nd")
+CREATE TABLE users(id int not null PRIMARY KEY AUTO_INCREMENT, 
+login varchar(40) not null,
+phone varchar(15) not null,
+pass varchar(100) not null)
+CREATE TABLE movies ( ID INT PRIMARY KEY NOT null AUTO_INCREMENT, name varchar(50) not null, imgLink varchar(3000) not null );
+CREATE TABLE showing (id int not null AUTO_INCREMENT PRIMARY KEY,
+hour varchar(5) not null, 
+day int not null,
+FOREIGN KEY (day) REFERENCES days(id),
+movie int not null,
+FOREIGN KEY (movie) REFERENCES movies(id)
+)
+CREATE TABLE reservations (id int not null AUTO_INCREMENT PRIMARY KEY,
+user int not null,
+FOREIGN KEY (user) REFERENCES users(id),
+showing int not null,
+FOREIGN KEY (showing) REFERENCES  showing(id),
+row int(2) not null,
+sit int(2) not null
+)
+
+
+<-------------------DATA ------------------>
+INSERT INTO `movies`(`name`, `imgLink`) VALUES ('DieHard','https://upload.wikimedia.org/wikipedia/en/7/7e/Die_hard.jpg');
+
+
+<--------------- DODWANIE PRZYKŁĄDOWE ------>
+INSERT INTO `showing`(`hour`, `day`, `movie`) VALUES ('9:20',(SELECT id from days WHERE name LIKE "pon"),1),('10:20',(SELECT id from days WHERE name LIKE "wt"),1), ('11:40',(SELECT id from days WHERE name LIKE "sr"),1), ('12:20',(SELECT id from days WHERE name LIKE "czw"),1), ('23:40',(SELECT id from days WHERE name LIKE "pt"),1);
+
+
+<-------------- POBIERANIE DOSTĘPNYCH SEANSÓW Z GODZINAMI I DATAMI -------------------->
+SELECT
+    days.name as "day",
+    showing.hour,
+    (
+    	SELECT name from movies where id LIKE showing.movie 
+    ) as "film"
+FROM
+    showing
+RIGHT JOIN days ON showing.day = days.id
+WHERE
+    movie LIKE 1;
+
+<--------------------KOLEJNE EKSPERYMENTALNE ------------------->
+SELECT days.name as "day", showing.hour, ( SELECT name from movies where id LIKE showing.movie ) as "film" FROM showing LEFT JOIN days ON showing.day = days.id 
