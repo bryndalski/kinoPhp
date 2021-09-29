@@ -1,3 +1,0 @@
-# kinoPhp
-# kinoPhp
-# kinoPhp

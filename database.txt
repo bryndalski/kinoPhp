@@ -30,6 +30,7 @@ INSERT INTO `movies`(`name`, `imgLink`) VALUES ('DieHard','https://upload.wikime
 
 
 <--------------- DODWANIE PRZYKŁĄDOWE ------>
+
 INSERT INTO `showing`(`hour`, `day`, `movie`) VALUES ('9:20',(SELECT id from days WHERE name LIKE "pon"),1),('10:20',(SELECT id from days WHERE name LIKE "wt"),1), ('11:40',(SELECT id from days WHERE name LIKE "sr"),1), ('12:20',(SELECT id from days WHERE name LIKE "czw"),1), ('23:40',(SELECT id from days WHERE name LIKE "pt"),1);
 
 

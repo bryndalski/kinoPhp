@@ -41,7 +41,7 @@ class PageGenderer {
   timesMaker(url, movie, times) {
     let toReturn = "";
     times.forEach((element) => {
-      toReturn += `<a href="${url}?time=${element.time}&day=${element.day}&movie=${movie}" class="btn m--1 btn--orange btn--round">
+      toReturn += `<a href="${url}/miejsca.php?time=${element.time}&day=${element.day}&movie=${movie}" class="btn m--1 btn--orange btn--round">
               <b>${element.day}: </b><span>${element.time}</span>
             </a>`;
     });

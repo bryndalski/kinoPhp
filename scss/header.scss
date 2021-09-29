@@ -16,7 +16,8 @@ header {
   height: 60px;
   border-bottom: 1px orange solid;
   justify-content: space-around;
-  div:first-child {
+  a:first-child {
+    text-decoration: none;
     margin-right: auto;
     display: flex;
     align-items: baseline;

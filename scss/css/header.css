@@ -18,12 +18,13 @@ header {
   border-bottom: 1px orange solid;
   justify-content: space-around;
 }
-header div:first-child {
+header a:first-child {
+  text-decoration: none;
   margin-right: auto;
   display: flex;
   align-items: baseline;
 }
-header div:first-child img {
+header a:first-child img {
   margin: 5px;
   height: 50px;
   width: 50px;

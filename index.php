@@ -11,13 +11,19 @@
   </head>
   <body>
     <header>
-      <div>
+      <a href="/kino">
         <h2>Kocur kino</h2>
         <img src="/kino/img/cinemaLogo.gif" alt="" />
-      </div>
+      </a>
       <div class="d--flex flex--row">
         <a class="btn btn--orange" href="register.php">Zarejestruj sie</a>
-        <a class="btn btn--orange" href="login.php">Zaloguj się</a>
+        <a class="btn btn--orange" href="login.php"><?php if (
+            !isset($_SESSION["lang"])
+        ) {
+            echo "zaloguj się";
+        } else {
+            echo "Wyloguj się";
+        } ?></a>
       </div>
     </header>
 

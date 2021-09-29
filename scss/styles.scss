@@ -43,6 +43,10 @@ $errorRed: #be3e3e;
     margin: 3px;
   }
 
+  &--0 {
+    margin: 0;
+  }
+
   &--center {
     margin: 0 auto;
   }
@@ -54,6 +58,10 @@ $errorRed: #be3e3e;
 .d {
   &--flex {
     display: flex;
+  }
+
+  &--block {
+    display: block;
   }
 }
 
@@ -174,4 +182,12 @@ $errorRed: #be3e3e;
       background-color: $baseGreen--dark;
     }
   }
+}
+
+.screen {
+  height: 3px;
+  border: solid 3px orange;
+  width: 90vw;
+  margin: 0 auto;
+  background-color: orange;
 }

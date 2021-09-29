@@ -34,6 +34,9 @@
 .m--1 {
   margin: 3px;
 }
+.m--0 {
+  margin: 0;
+}
 .m--center {
   margin: 0 auto;
 }
@@ -43,6 +46,9 @@
 
 .d--flex {
   display: flex;
+}
+.d--block {
+  display: block;
 }
 
 .w--content {
@@ -146,4 +152,12 @@
 }
 .button--accept:hover {
   background-color: #225c0b;
+}
+
+.screen {
+  height: 3px;
+  border: solid 3px orange;
+  width: 90vw;
+  margin: 0 auto;
+  background-color: orange;
 }
