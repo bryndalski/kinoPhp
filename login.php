@@ -18,11 +18,8 @@
       <div class="d--flex flex--row">
         <a class="btn btn--orange" href="register.php">Zarejestruj sie</a>
         <a class="btn btn--orange"
-        <?php if (!isset($_SESSION)) {
-            echo "href='/kino/login.php'> zaloguj się";
-        } else {
-            echo "href='/kino/backend/bajo.php'> Wyloguj się";
-        } ?></a>
+        <?php include "./backend/isLogged.php"; ?>
+        </a>
       </div>
     </header>
 
@@ -86,6 +83,8 @@
             if (isset($result["pass"]) == 1) {
                 if (password_verify($_POST["password"], $result["pass"])) {
                     session_start();
+                    $_SESSION["login"] = true;
+                    header("Location: /kino");
                     echo "<p class='text--orange' >Zalogowano poprawnie: witaj {$_POST["login"]}</p>";
                 } else {
                     echo "<p class='text--orange' >błędne login lub hasło</p>";

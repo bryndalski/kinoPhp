@@ -8,12 +8,12 @@ class roomMaker {
     this.init();
   }
   async init() {
-    await fetch("/projekt_kino/backend/isLoggedIn.php")
-      .then((v) => v.json())
-      .then((v) => {
-        console.log(v);
-        // if (!v[0].loggedIn) location.href = "/projekt_kino/login.php";
-      });
+    // await fetch("/projekt_kino/backend/isLoggedIn.php")
+    //   .then((v) => v.json())
+    //   .then((v) => {
+    //     console.log(v);
+    //     // if (!v[0].loggedIn) location.href = "/projekt_kino/login.php";
+    //   });
 
     fetch("/projekt_kino/backend/sits.php")
       .then((v) => v.json())

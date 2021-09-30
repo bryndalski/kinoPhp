@@ -65,3 +65,104 @@ FROM
 
 <--------------------KOLEJNE EKSPERYMENTALNE ------------------->
 SELECT days.name as "day", showing.hour, ( SELECT name from movies where id LIKE showing.movie ) as "film" FROM showing LEFT JOIN days ON showing.day = days.id 
+
+
+
+
+
+< _____-------------- DODAWANIE UŻYTKOWNIKA DO SEANSU  -------------->
+INSERT INTO `reservations`(`user`, `showing`, `row`, `sit`)
+VALUES(
+    (
+    SELECT
+        users.id
+    FROM
+        users
+    WHERE
+        users.login LIKE 'ZMIENNA_NAZWA_UŻYTKOWNIKA'
+),
+(
+   SELECT
+    (
+    SELECT
+        users.login
+    FROM
+        users
+    WHERE
+        users.id LIKE reservations.user
+) AS "User",
+row,
+sit
+FROM
+    reservations
+WHERE
+    reservations.showing LIKE(
+    SELECT
+        showing.id
+    FROM
+        showing
+    WHERE
+        movie LIKE(
+        SELECT
+            movies.ID
+        FROM
+            movies
+        WHERE
+            movies.name LIKE 'ZMIENNA_NAZWA_FILMU'
+    ) AND showing.hour LIKE "ZMIENNA_GODZINA" AND showing.day LIKE(
+        (
+        SELECT
+            days.id
+        FROM
+            days
+        WHERE
+            days.name LIKE "ZMIENNA_DZIEŃ"
+    )
+    )
+);
+),
+'10',
+'3'
+);
+
+
+
+< -------------------------- POBIERNANIE MIEJSC SEANSU ---------------------------- >
+SELECT
+    (
+    SELECT
+        users.login
+    FROM
+        users
+    WHERE
+        users.id LIKE reservations.user
+) AS "user",
+row,
+sit
+FROM
+    reservations
+WHERE
+    reservations.showing LIKE(
+    SELECT
+        showing.id
+    FROM
+        showing
+    WHERE
+        movie LIKE(
+        SELECT
+            movies.ID
+        FROM
+            movies
+        WHERE
+            movies.name LIKE 'DieHard'
+    ) AND showing.hour LIKE "9:20" AND showing.day LIKE(
+        (
+        SELECT
+            days.id
+        FROM
+            days
+        WHERE
+            days.name LIKE "pon"
+    )
+    )
+);
