@@ -17,14 +17,7 @@
       </a>
       <div class="d--flex flex--row">
         <a class="btn btn--orange" href="register.php">Zarejestruj sie</a>
-        <a class="btn btn--orange" href="login.php"><?php
-        session_start();
-        if (!isset($_SESSION["login"])) {
-            echo "zaloguj się";
-        } else {
-            echo "Wyloguj się";
-        }
-        ?></a>
+        <a class="btn btn--orange" <?php include "./backend/isLogged.php"; ?></a>
       </div>
     </header>
 

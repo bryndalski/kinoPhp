@@ -160,6 +160,9 @@ $errorRed: #be3e3e;
   &--error {
     border-color: $errorRed !important;
   }
+  &--orange {
+    border: solid 1px orange;
+  }
 }
 .button {
   border: solid 3px;
@@ -190,4 +193,32 @@ $errorRed: #be3e3e;
   width: 90vw;
   margin: 0 auto;
   background-color: orange;
+}
+.container {
+  width: 90vw;
+  margin: 0 auto;
+}
+.row {
+  max-height: calc(80vh / 15);
+}
+.sit {
+  width: calc(90vw / 22);
+  margin: 0.3rem;
+  height: calc(90vw / 22);
+  max-height: calc(90vh / 20);
+  &--hover {
+    &:hover {
+      background-color: #83ff527a;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+  }
+
+  &--cover {
+    background-image: url("../../img/young.png");
+    background-size: cover;
+  }
+  &--selected {
+    background-color: yellow;
+  }
 }
