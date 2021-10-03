@@ -75,54 +75,34 @@ INSERT INTO `reservations`(`user`, `showing`, `row`, `sit`)
 VALUES(
     (
     SELECT
-        users.id
+        id
     FROM
         users
     WHERE
-        users.login LIKE 'ZMIENNA_NAZWA_UŻYTKOWNIKA'
+        users.login LIKE 'Maciek'
 ),
-(
-   SELECT
-    (
-    SELECT
-        users.login
-    FROM
-        users
-    WHERE
-        users.id LIKE reservations.user
-) AS "User",
-row,
-sit
+(SELECT
+    id
 FROM
-    reservations
+    showing
 WHERE
-    reservations.showing LIKE(
+    showing.day LIKE(
     SELECT
-        showing.id
+        id
     FROM
-        showing
+        days
     WHERE
-        movie LIKE(
-        SELECT
-            movies.ID
-        FROM
-            movies
-        WHERE
-            movies.name LIKE 'ZMIENNA_NAZWA_FILMU'
-    ) AND showing.hour LIKE "ZMIENNA_GODZINA" AND showing.day LIKE(
-        (
-        SELECT
-            days.id
-        FROM
-            days
-        WHERE
-            days.name LIKE "ZMIENNA_DZIEŃ"
-    )
-    )
-);
-),
+        days.name LIKE "wt"
+) AND showing.hour LIKE '10:20' AND showing.movie LIKE(
+    SELECT
+        id
+    FROM
+        movies
+    WHERE
+        movies.name LIKE 'DieHard'
+)),
 '10',
-'3'
+'5'
 );
 
 

@@ -13,7 +13,6 @@ class roomMaker {
     fetch(`/kino/backend/sits.php${window.location.search}`)
       .then((v) => v.json())
       .then((d) => this.forbid(d));
-    console.log(await this.reserved);
   }
   /**
    * Renders all sits and assign them to sitesArray
@@ -87,12 +86,19 @@ class roomMaker {
     });
   }
 
-  reserve() {
-    fetch("/kino/backend/reserve.php", {
+  reserve = () => {
+    console.log("Xd");
+    console.log(this.reserved);
+    fetch(`/kino/backend/reserve.php${window.location.search}`, {
       method: "POST",
       body: JSON.stringify({ reserved: this.reserved }),
-    });
-  }
+    })
+      .then((v) => v.text())
+      .then((x) => {
+        alert("Miejsa zarezerwowano");
+        location.href = "/kino/index.php";
+      });
+  };
 }
 
 new roomMaker();
